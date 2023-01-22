@@ -12,6 +12,7 @@ class ColorManager {
   static const Color orange = Color(0xffFA9B4A);
   static const Color yellow = Color(0xffFFEB3D);
   static const Color darkBlue = Color(0xff172735);
+  static const Color gray = Color(0xff707070);
   static final List<Color> taskPriorities = [
     pink,
     orange,

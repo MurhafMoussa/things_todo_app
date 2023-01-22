@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:things_todo/features/home/presentation/pages/home_page.dart';
+
 import 'core/resources/strings_manager.dart';
 import 'core/resources/theme_manager.dart';
 import 'generated/l10n.dart';
@@ -17,7 +18,7 @@ class ThingsToDo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+      onGenerateTitle: (context) => ,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -25,8 +26,8 @@ class ThingsToDo extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale(StringsManager.english), 
-        Locale(StringsManager.arabic), 
+        Locale(StringsManager.english),
+        Locale(StringsManager.arabic),
       ],
       debugShowCheckedModeBanner: false,
       builder: (context, child) => ResponsiveWrapper.builder(

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:responsive_framework/responsive_framework.dart';
-import 'package:responsive_framework/responsive_value.dart';
+import 'package:things_todo/core/resources/font_manager.dart';
+import 'package:things_todo/core/resources/text_style_manager.dart';
+import 'package:things_todo/core/widgets/svg_asset_icon.dart';
 
 import '../../../../core/resources/assets_manager.dart';
-import '../../../../core/resources/font_manager.dart';
 import '../../../../generated/l10n.dart';
 
 class AppTitle extends StatelessWidget {
@@ -17,29 +16,22 @@ class AppTitle extends StatelessWidget {
     return Row(
       children: [
         Text.rich(
-          TextSpan(text: AppLocalizations.of(context).things, children: [
-            TextSpan(
-              text: AppLocalizations.of(context).tod,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall!
-                  .copyWith(fontWeight: FontWeightManager.bold),
-            ),
-          ]),
-        ),
-        SvgPicture.asset(
-          AssetsManager.targetIcon,
-          height: ResponsiveValue(
-            context,
-            defaultValue: 30,
-            valueWhen: const [
-              Condition.smallerThan(
-                name: MOBILE,
-                value: 30.0,
+          TextSpan(
+              text: AppLocalizations.of(context).things,
+              style: getNormalTitleTextStyle().copyWith(
+                fontWeight: FontWeightManager.regular,
               ),
-            ],
-          ).value!.toDouble(),
+              children: [
+                TextSpan(
+                  text: AppLocalizations.of(context).tod,
+                  style: getNormalTitleTextStyle(),
+                ),
+              ]),
         ),
+        const SvgAssetIcon(
+          path: AssetsManager.targetIcon,
+          scaleFactor: 0.75,
+        )
       ],
     );
   }
